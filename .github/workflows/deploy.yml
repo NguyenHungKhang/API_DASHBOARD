@@ -1,0 +1,79 @@
+name: Deploy
+
+on:
+  push:
+    branches: [ "main" ]
+
+permissions: read-all
+
+jobs:
+  deploy:
+    name: Deploy to EC2
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2 
+
+    - name: SSH Config
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.PRIVATE_KEY }}
+        port: ${{ secrets.SSH_PORT }}
+        script: |
+          sudo yum update
+          sudo yum install docker -y
+          sudo yum install git -y
+          sudo service docker start
+          sudo curl -L https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose -y
+          sudo chmod +x /usr/local/bin/docker-compose -y
+          docker-compose version
+          
+          if [ -d "api_dashboard" ]; then
+            cd api_dashboard
+            git pull https://github.com/TranHuynhTanPhat/api_dashboard.git
+            cd ~
+          else
+            git clone https://github.com/TranHuynhTanPhat/api_dashboard.git
+          fi
+          
+    - name: Config Project 
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.PRIVATE_KEY }}
+        port: ${{ secrets.SSH_PORT }}
+        script: |
+          cd api_dashboard/front-end/src
+          sudo sed -i -e '3,3d' axios.js
+          sudo sed -i -e "3,3s/^/axios.defaults.baseURL = 'http:\/\/${{ secrets.HOST }}:8000\/'\n/" axios.js
+          
+          cd ~
+          cd api_dashboard/back-end/app
+          sudo sed -i -e '12,12d' index.py
+          sudo sed -i -e '12,12s/^/\t"http:\/\/${{ secrets.HOST }}:8080"\n/' index.py
+          
+          cd ~
+          
+    - name: Run Project
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.PRIVATE_KEY }}
+        port: ${{ secrets.SSH_PORT }}
+        script: |
+          cd api_dashboard/front-end
+          sudo docker-compose down
+          sudo docker image rmi --force front-end-app
+          sudo docker-compose up -d
+          
+          cd ~
+          cd api_dashboard/back-end
+          sudo docker-compose down
+          sudo docker image rmi --force back-end-app
+          sudo docker-compose up -d
+          
+          cd ~
+ 
