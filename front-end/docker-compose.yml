@@ -3,7 +3,6 @@ services:
   app:
     container_name: frontend-vuejs
     build: .
-    restart: always
     volumes:
       - .:/app
     ports:
