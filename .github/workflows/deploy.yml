@@ -30,7 +30,7 @@ jobs:
           docker-compose version
           
           if [ -d "API_DASHBOARD" ]; then
-            cd api_dashboard
+            cd API_DASHBOARD
             git pull https://github.com/NguyenHungKhang/API_DASHBOARD.git
             cd ~
           else
@@ -66,13 +66,13 @@ jobs:
         script: |
           cd API_DASHBOARD/front-end
           sudo docker-compose down
-          sudo docker image rmi --force front-end-app
+          sudo docker image rmi --force frontend-vuejs
           sudo docker-compose up -d
           
           cd ~
           cd API_DASHBOARD/back-end
           sudo docker-compose down
-          sudo docker image rmi --force back-end-app
+          sudo docker image rmi --force backend-python
           sudo docker-compose up -d
           
           cd ~
