@@ -115,6 +115,5 @@ jobs:
           cd ~
           cd API_DASHBOARD/front-end
           sudo docker-compose up -d
-          sudo docker update --restart=no frontend-vuejs
           
  
