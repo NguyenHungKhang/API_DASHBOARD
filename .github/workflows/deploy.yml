@@ -91,7 +91,8 @@ jobs:
           cd API_DASHBOARD/front-end
           sudo docker-compose down
           
-    - name: Run front-end
+          
+    - name: Run down front-end image
       uses: appleboy/ssh-action@master
       with:
         host: ${{ secrets.HOST }}
@@ -102,5 +103,16 @@ jobs:
           cd ~
           cd API_DASHBOARD/front-end
           sudo docker image rmi --force front-end-app
+        
+    - name: Run front-end
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.PRIVATE_KEY }}
+        port: ${{ secrets.SSH_PORT }}
+        script: |
+          cd ~
+          cd API_DASHBOARD/front-end
           sudo docker-compose up -d
  
