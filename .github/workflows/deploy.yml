@@ -45,6 +45,7 @@ jobs:
         key: ${{ secrets.PRIVATE_KEY }}
         port: ${{ secrets.SSH_PORT }}
         script: |
+          cd ~
           cd API_DASHBOARD/front-end/src
           sudo sed -i -e '3,3d' axios.js
           sudo sed -i -e "3,3s/^/axios.defaults.baseURL = 'http:\/\/${{ secrets.HOST }}:8000\/'\n/" axios.js
@@ -54,8 +55,6 @@ jobs:
           sudo sed -i -e '12,12d' index.py
           sudo sed -i -e '12,12s/^/\t"http:\/\/${{ secrets.HOST }}:8080"\n/' index.py
           
-          cd ~
-          
     - name: Run Project
       uses: appleboy/ssh-action@master
       with:
@@ -64,10 +63,6 @@ jobs:
         key: ${{ secrets.PRIVATE_KEY }}
         port: ${{ secrets.SSH_PORT }}
         script: |
-          cd API_DASHBOARD/front-end
-          sudo docker-compose down
-          sudo docker image rmi --force front-end-app
-          sudo docker-compose up -d
           
           cd ~
           cd API_DASHBOARD/back-end
@@ -76,4 +71,8 @@ jobs:
           sudo docker-compose up -d
           
           cd ~
+          cd API_DASHBOARD/front-end
+          sudo docker-compose down
+          sudo docker image rmi --force front-end-app
+          sudo docker-compose up -d
  
