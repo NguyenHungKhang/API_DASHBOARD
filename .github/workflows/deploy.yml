@@ -54,7 +54,7 @@ jobs:
           cd API_DASHBOARD/back-end/app
           sudo sed -i -e '12,12d' index.py
           sudo sed -i -e '12,12s/^/\t"http:\/\/${{ secrets.HOST }}:8080"\n/' index.py
-    - name: Run down project
+    - name: Run down back-end
       uses: appleboy/ssh-action@master
       with:
         host: ${{ secrets.HOST }}
@@ -62,10 +62,6 @@ jobs:
         key: ${{ secrets.PRIVATE_KEY }}
         port: ${{ secrets.SSH_PORT }}
         script: |
-          cd ~
-          cd API_DASHBOARD/front-end
-          sudo docker-compose down
-          
           cd ~
           cd API_DASHBOARD/back-end
           sudo docker-compose down
@@ -83,6 +79,18 @@ jobs:
           sudo docker image rmi --force back-end-app
           sudo docker-compose up -d
     
+    - name: Run down front-end
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.PRIVATE_KEY }}
+        port: ${{ secrets.SSH_PORT }}
+        script: |
+          cd ~
+          cd API_DASHBOARD/front-end
+          sudo docker-compose down
+          
     - name: Run front-end
       uses: appleboy/ssh-action@master
       with:
