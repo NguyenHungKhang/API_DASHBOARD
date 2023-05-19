@@ -12,7 +12,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from selenium.webdriver.chrome.options import Options
 
-ENDPOINT = "http://ec2-54-90-106-213.compute-1.amazonaws.com:8080/"
+ENDPOINT = "http://ec2-3-82-188-235.compute-1.amazonaws.com:8080/"
 
 class TestTCDangKy001():
   def setup_method(self, method):
@@ -122,7 +122,7 @@ class TestTCDangKy004():
     self.driver.quit()
 
   def test_tCDangKy002(self):
-    self.driver.get("http://ec2-54-90-106-213.compute-1.amazonaws.com:8080/")
+    self.driver.get(ENDPOINT)
     self.driver.set_window_size(974, 1032)
     self.driver.implicitly_wait(3)
     self.driver.find_element(By.LINK_TEXT, "Sign up").click()
@@ -151,7 +151,7 @@ class TestTCDangKy005():
     self.driver.quit()
 
   def test_tCDangKy002(self):
-    self.driver.get("http://ec2-54-90-106-213.compute-1.amazonaws.com:8080/")
+    self.driver.get(ENDPOINT)
     self.driver.set_window_size(974, 1032)
     self.driver.implicitly_wait(3)
     self.driver.find_element(By.LINK_TEXT, "Sign up").click()
