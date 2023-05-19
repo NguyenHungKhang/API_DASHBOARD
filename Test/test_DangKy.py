@@ -18,7 +18,9 @@ ENDPOINT = "http://ec2-54-90-106-213.compute-1.amazonaws.com:8080/"
 class TestTCDangNhap001():
   def setup_method(self, method):
     options = Options()
-    options.add_argument('--no-sandbox')  
+    chrome_options.add_argument('--headless')
+    chrome_options.add_argument('--no-sandbox')
+    chrome_options.add_argument('--disable-dev-shm-usage')
     self.driver = webdriver.Chrome(chrome_options=options)
     self.driver.maximize_window()
     self.wait = WebDriverWait(self.driver, timeout=10)
@@ -43,7 +45,9 @@ class TestTCDangNhap001():
 class TestTCDangNhap002():
   def setup_method(self, method):
     self.driver = options = Options()
-    options.add_argument('--no-sandbox')  
+    chrome_options.add_argument('--headless')
+    chrome_options.add_argument('--no-sandbox')
+    chrome_options.add_argument('--disable-dev-shm-usage')
     self.driver = webdriver.Chrome(chrome_options=options)
     self.driver.maximize_window()
     self.wait = WebDriverWait(self.driver, timeout=10)
@@ -68,7 +72,9 @@ class TestTCDangNhap002():
 class TestTCDangNhap003():
   def setup_method(self, method):
     self.driver = options = Options()
-    options.add_argument('--no-sandbox')  
+    chrome_options.add_argument('--headless')
+    chrome_options.add_argument('--no-sandbox')
+    chrome_options.add_argument('--disable-dev-shm-usage')
     self.driver = webdriver.Chrome(chrome_options=options)
     self.driver.maximize_window()
     self.wait = WebDriverWait(self.driver, timeout=10)
@@ -93,7 +99,9 @@ class TestTCDangNhap003():
 class TestTCDangNhap004():
   def setup_method(self, method):
     self.driver = options = Options()
-    options.add_argument('--no-sandbox')  
+    chrome_options.add_argument('--headless')
+    chrome_options.add_argument('--no-sandbox')
+    chrome_options.add_argument('--disable-dev-shm-usage')
     self.driver = webdriver.Chrome(chrome_options=options)
     self.driver.maximize_window()
     self.wait = WebDriverWait(self.driver, timeout=10)
@@ -118,7 +126,9 @@ class TestTCDangNhap004():
 class TestTCDangNhap005():
   def setup_method(self, method):
     self.driver = options = Options()
-    options.add_argument('--no-sandbox')  
+    chrome_options.add_argument('--headless')
+    chrome_options.add_argument('--no-sandbox')
+    chrome_options.add_argument('--disable-dev-shm-usage')
     self.driver = webdriver.Chrome(chrome_options=options)
     self.driver.maximize_window()
     self.wait = WebDriverWait(self.driver, timeout=10)
