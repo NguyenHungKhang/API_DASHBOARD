@@ -12,7 +12,7 @@ from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from selenium.webdriver.chrome.options import Options
 
 
-ENDPOINT = "http://ec2-54-90-106-213.compute-1.amazonaws.com:8080/"
+ENDPOINT = "http://ec2-3-82-188-235.compute-1.amazonaws.com:8080/"
 
 
 class TestTCDangNhap001():
