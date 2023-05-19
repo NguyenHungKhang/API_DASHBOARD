@@ -25,7 +25,7 @@ jobs:
       - name: Run tests
         run: |
           cd Test
-          python -m pytest --html=report.html -vv -n auto --self-contained-html
+          python -m pytest --html=report.html
         
       - name: Upload Test Report
         uses: actions/upload-artifact@v2
