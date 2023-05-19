@@ -28,7 +28,7 @@ jobs:
       - name: Run tests
         run: |
           cd Test
-          python -m pytest --html=report.html
+          python -m pytest test_TaiKhoan --html=report.html
         
       - name: Upload Test Report
         uses: actions/upload-artifact@v2
