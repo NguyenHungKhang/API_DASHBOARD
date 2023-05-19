@@ -9,14 +9,15 @@ from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
-from webdriver_manager.chrome import ChromeDriverManager
 
 
 ENDPOINT = "http://ec2-54-90-106-213.compute-1.amazonaws.com:8080/"
 
 class TestTCThongKe001():
   def setup_method(self, method):
-    self.driver = webdriver.Chrome()
+    options = Options()
+    options.add_argument('--no-sandbox')  
+    self.driver = webdriver.Chrome(chrome_options=options)
     self.driver.maximize_window()
     self.wait = WebDriverWait(self.driver, timeout=10)
     self.vars = {}
@@ -40,7 +41,9 @@ class TestTCThongKe001():
 
 class TestTCThongKe002():
   def setup_method(self, method):
-    self.driver = webdriver.Chrome()
+    options = Options()
+    options.add_argument('--no-sandbox')  
+    self.driver = webdriver.Chrome(chrome_options=options)
     self.driver.maximize_window()
     self.wait = WebDriverWait(self.driver, timeout=10)
     self.vars = {}
@@ -66,7 +69,9 @@ class TestTCThongKe002():
 
 class TestTCThongKe003():
   def setup_method(self, method):
-    self.driver = webdriver.Chrome()
+    options = Options()
+    options.add_argument('--no-sandbox')  
+    self.driver = webdriver.Chrome(chrome_options=options)
     self.driver.maximize_window()
     self.wait = WebDriverWait(self.driver, timeout=10)
     self.vars = {}
@@ -94,7 +99,9 @@ class TestTCThongKe003():
 
 class TestTCThongKe004():
   def setup_method(self, method):
-    self.driver = webdriver.Chrome()
+    options = Options()
+    options.add_argument('--no-sandbox')  
+    self.driver = webdriver.Chrome(chrome_options=options)
     self.driver.maximize_window()
     self.wait = WebDriverWait(self.driver, timeout=10)
     self.vars = {}
@@ -121,7 +128,9 @@ class TestTCThongKe004():
 
 class TestTCThongKe005():
   def setup_method(self, method):
-    self.driver = webdriver.Chrome()
+    options = Options()
+    options.add_argument('--no-sandbox')  
+    self.driver = webdriver.Chrome(chrome_options=options)
     self.driver.maximize_window()
     self.wait = WebDriverWait(self.driver, timeout=10)
     self.vars = {}

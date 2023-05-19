@@ -15,7 +15,9 @@ ENDPOINT = "http://ec2-54-90-106-213.compute-1.amazonaws.com:8080/"
 
 class TestTCDangKy001():
   def setup_method(self, method):
-    self.driver = webdriver.Chrome()
+    options = Options()
+    options.add_argument('--no-sandbox')  
+    self.driver = webdriver.Chrome(chrome_options=options)
     self.driver.maximize_window()
     self.wait = WebDriverWait(self.driver, timeout=10)
     self.vars = {}
@@ -46,7 +48,9 @@ class TestTCDangKy001():
 
 class TestTCDangKy002():
   def setup_method(self, method):
-    self.driver = webdriver.Chrome()
+    options = Options()
+    options.add_argument('--no-sandbox')  
+    self.driver = webdriver.Chrome(chrome_options=options)
     self.driver.maximize_window()
     self.wait = WebDriverWait(self.driver, timeout=10)
     self.vars = {}
@@ -71,7 +75,9 @@ class TestTCDangKy002():
 
 class TestTCDangKy003():
   def setup_method(self, method):
-    self.driver = webdriver.Chrome()
+    options = Options()
+    options.add_argument('--no-sandbox')  
+    self.driver = webdriver.Chrome(chrome_options=options)
     self.driver.maximize_window()
     self.wait = WebDriverWait(self.driver, timeout=10)
     self.vars = {}
@@ -96,7 +102,9 @@ class TestTCDangKy003():
   
 class TestTCDangKy004():
   def setup_method(self, method):
-    self.driver = webdriver.Chrome()
+    options = Options()
+    options.add_argument('--no-sandbox')  
+    self.driver = webdriver.Chrome(chrome_options=options)
     self.driver.maximize_window()
     self.wait = WebDriverWait(self.driver, timeout=10)
     self.vars = {}
@@ -121,7 +129,9 @@ class TestTCDangKy004():
 
 class TestTCDangKy005():
   def setup_method(self, method):
-    self.driver = webdriver.Chrome()
+    options = Options()
+    options.add_argument('--no-sandbox')  
+    self.driver = webdriver.Chrome(chrome_options=options)
     self.driver.maximize_window()
     self.wait = WebDriverWait(self.driver, timeout=10)
     self.vars = {}
@@ -140,31 +150,6 @@ class TestTCDangKy005():
     self.driver.find_element(By.NAME, "password").send_keys("123")
     self.driver.find_element(By.NAME, "confirm_password").click()
     self.driver.find_element(By.NAME, "confirm_password").send_keys("1234")
-    self.driver.find_element(By.CSS_SELECTOR, "button").click()
-    time.sleep(10.0)
-    self.driver.find_element(By.NAME, "confirm_password").click()
-
-class TestTCDangKy004():
-  def setup_method(self, method):
-    self.driver = webdriver.Chrome()
-    self.driver.maximize_window()
-    self.wait = WebDriverWait(self.driver, timeout=10)
-    self.vars = {}
-
-  def teardown_method(self, method):
-    self.driver.quit()
-
-  def test_tCDangKy002(self):
-    self.driver.get("http://ec2-54-90-106-213.compute-1.amazonaws.com:8080/")
-    self.driver.set_window_size(974, 1032)
-    self.driver.implicitly_wait(3)
-    self.driver.find_element(By.LINK_TEXT, "Sign up").click()
-    self.driver.find_element(By.NAME, "email").click()
-    self.driver.find_element(By.NAME, "email").send_keys("nguyenhungkhang789@gmail.com")
-    self.driver.find_element(By.NAME, "password").click()
-    self.driver.find_element(By.NAME, "password").send_keys("1234")
-    self.driver.find_element(By.NAME, "confirm_password").click()
-    self.driver.find_element(By.NAME, "confirm_password").send_keys("123")
     self.driver.find_element(By.CSS_SELECTOR, "button").click()
     time.sleep(10.0)
     self.driver.find_element(By.NAME, "confirm_password").click()
