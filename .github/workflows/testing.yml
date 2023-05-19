@@ -19,7 +19,7 @@ jobs:
 
       - name: Install required python modules
         run: |
-          python -m pip install --upgrade boto3 moto pytest pytest-github-report pytest-cov coverage pre-commit pytest-html
+          python -m pip install --upgrade boto3 moto pytest pytest-github-report pytest-cov coverage pre-commit pytest-html selenium
           pip install pytest-html
           
       - name: Run tests
