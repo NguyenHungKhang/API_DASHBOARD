@@ -14,6 +14,7 @@ from selenium.webdriver.chrome.options import Options
 
 ENDPOINT = "http://ec2-54-90-106-213.compute-1.amazonaws.com:8080/"
 
+
 class TestTCDangNhap001():
   def setup_method(self, method):
     options = Options()
