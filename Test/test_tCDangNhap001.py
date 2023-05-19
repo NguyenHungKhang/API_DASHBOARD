@@ -17,10 +17,10 @@ ENDPOINT = "http://ec2-54-90-106-213.compute-1.amazonaws.com:8080/"
 class TestTCDangKy001():
   def setup_method(self, method):
     options = Options()
-    chrome_options.add_argument('--headless')
-    chrome_options.add_argument('--no-sandbox')
-    chrome_options.add_argument('--disable-dev-shm-usage')
-    self.driver = webdriver.Chrome(chrome_options=options)
+    options.add_argument('--headless')
+    options.add_argument('--no-sandbox')
+    options.add_argument('--disable-dev-shm-usage')
+    self.driver = webdriver.Chrome(options=options)
     self.driver.maximize_window()
     self.wait = WebDriverWait(self.driver, timeout=10)
     self.vars = {}
@@ -52,10 +52,10 @@ class TestTCDangKy001():
 class TestTCDangKy002():
   def setup_method(self, method):
     options = Options()
-    chrome_options.add_argument('--headless')
-    chrome_options.add_argument('--no-sandbox')
-    chrome_options.add_argument('--disable-dev-shm-usage')
-    self.driver = webdriver.Chrome(chrome_options=options)
+    options.add_argument('--headless')
+    options.add_argument('--no-sandbox')
+    options.add_argument('--disable-dev-shm-usage')
+    self.driver = webdriver.Chrome(options=options)
     self.driver.maximize_window()
     self.wait = WebDriverWait(self.driver, timeout=10)
     self.vars = {}
@@ -81,10 +81,10 @@ class TestTCDangKy002():
 class TestTCDangKy003():
   def setup_method(self, method):
     options = Options()
-    chrome_options.add_argument('--headless')
-    chrome_options.add_argument('--no-sandbox')
-    chrome_options.add_argument('--disable-dev-shm-usage')
-    self.driver = webdriver.Chrome(chrome_options=options)
+    options.add_argument('--headless')
+    options.add_argument('--no-sandbox')
+    options.add_argument('--disable-dev-shm-usage')
+    self.driver = webdriver.Chrome(options=options)
     self.driver.maximize_window()
     self.wait = WebDriverWait(self.driver, timeout=10)
     self.vars = {}
@@ -110,10 +110,10 @@ class TestTCDangKy003():
 class TestTCDangKy004():
   def setup_method(self, method):
     options = Options()
-    chrome_options.add_argument('--headless')
-    chrome_options.add_argument('--no-sandbox')
-    chrome_options.add_argument('--disable-dev-shm-usage')
-    self.driver = webdriver.Chrome(chrome_options=options)
+    options.add_argument('--headless')
+    options.add_argument('--no-sandbox')
+    options.add_argument('--disable-dev-shm-usage')
+    self.driver = webdriver.Chrome(options=options)
     self.driver.maximize_window()
     self.wait = WebDriverWait(self.driver, timeout=10)
     self.vars = {}
@@ -139,10 +139,10 @@ class TestTCDangKy004():
 class TestTCDangKy005():
   def setup_method(self, method):
     options = Options()
-    chrome_options.add_argument('--headless')
-    chrome_options.add_argument('--no-sandbox')
-    chrome_options.add_argument('--disable-dev-shm-usage')
-    self.driver = webdriver.Chrome(chrome_options=options)
+    options.add_argument('--headless')
+    options.add_argument('--no-sandbox')
+    options.add_argument('--disable-dev-shm-usage')
+    self.driver = webdriver.Chrome(options=options)
     self.driver.maximize_window()
     self.wait = WebDriverWait(self.driver, timeout=10)
     self.vars = {}
