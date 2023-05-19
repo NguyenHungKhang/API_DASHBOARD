@@ -11,19 +11,12 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from webdriver_manager.chrome import ChromeDriverManager
 
-chrome_options = Options()
-chrome_options.add_argument('--headless')
-# optional
-chrome_options.add_argument('--no-sandbox')
-# optional
-chrome_options.add_argument('--disable-dev-shm-usage')
-webdriver.Chrome(ChromeDriverManager().install(),options=chrome_options)
 
 ENDPOINT = "http://ec2-54-90-106-213.compute-1.amazonaws.com:8080/"
 
 class TestTCTaiKhoan001():
   def setup_method(self, method):
-    self.driver = webdriver.Chrome(ChromeDriverManager().install(),options=chrome_options)
+    self.driver = webdriver.Chrome(ChromeDriverManager().install())
     self.wait = WebDriverWait(self.driver, timeout=10)
     self.vars = {}
   
@@ -46,7 +39,7 @@ class TestTCTaiKhoan001():
 
 class TestTCTaiKhoan002():
   def setup_method(self, method):
-    self.driver = webdriver.Chrome(ChromeDriverManager().install(),options=chrome_options)
+    self.driver = webdriver.Chrome(ChromeDriverManager().install())
     self.wait = WebDriverWait(self.driver, timeout=10)
     self.vars = {}
   
@@ -86,7 +79,7 @@ class TestTCTaiKhoan002():
 
 class TestTCTaiKhoan003():
   def setup_method(self, method):
-    self.driver = webdriver.Chrome(ChromeDriverManager().install(),options=chrome_options)
+    self.driver = webdriver.Chrome(ChromeDriverManager().install())
     self.wait = WebDriverWait(self.driver, timeout=10)
     self.vars = {}
   
@@ -114,7 +107,7 @@ class TestTCTaiKhoan003():
 
 class TestTCTaiKhoan004():
   def setup_method(self, method):
-    self.driver = webdriver.Chrome(ChromeDriverManager().install(),options=chrome_options)
+    self.driver = webdriver.Chrome(ChromeDriverManager().install())
     self.wait = WebDriverWait(self.driver, timeout=10)
     self.vars = {}
   
@@ -139,7 +132,7 @@ class TestTCTaiKhoan004():
 
 class TestTCTaiKhoan005():
   def setup_method(self, method):
-    self.driver = webdriver.Chrome(ChromeDriverManager().install(),options=chrome_options)
+    self.driver = webdriver.Chrome(ChromeDriverManager().install())
     self.wait = WebDriverWait(self.driver, timeout=10)
     self.vars = {}
   
