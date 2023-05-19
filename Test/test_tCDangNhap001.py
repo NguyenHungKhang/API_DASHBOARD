@@ -9,14 +9,14 @@ from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
-from webdriver_manager.chrome import ChromeDriverManager
 
 
 ENDPOINT = "http://ec2-54-90-106-213.compute-1.amazonaws.com:8080/"
 
 class TestTCDangKy001():
   def setup_method(self, method):
-    self.driver = webdriver.Chrome(ChromeDriverManager().install())
+    self.driver = webdriver.Chrome()
+    self.driver.maximize_window()
     self.wait = WebDriverWait(self.driver, timeout=10)
     self.vars = {}
   
@@ -46,7 +46,8 @@ class TestTCDangKy001():
 
 class TestTCDangKy002():
   def setup_method(self, method):
-    self.driver = webdriver.Chrome(ChromeDriverManager().install())
+    self.driver = webdriver.Chrome()
+    self.driver.maximize_window()
     self.wait = WebDriverWait(self.driver, timeout=10)
     self.vars = {}
   
@@ -70,7 +71,8 @@ class TestTCDangKy002():
 
 class TestTCDangKy003():
   def setup_method(self, method):
-    self.driver = webdriver.Chrome(ChromeDriverManager().install())
+    self.driver = webdriver.Chrome()
+    self.driver.maximize_window()
     self.wait = WebDriverWait(self.driver, timeout=10)
     self.vars = {}
 
@@ -94,7 +96,8 @@ class TestTCDangKy003():
   
 class TestTCDangKy004():
   def setup_method(self, method):
-    self.driver = webdriver.Chrome(ChromeDriverManager().install())
+    self.driver = webdriver.Chrome()
+    self.driver.maximize_window()
     self.wait = WebDriverWait(self.driver, timeout=10)
     self.vars = {}
 
@@ -118,7 +121,8 @@ class TestTCDangKy004():
 
 class TestTCDangKy005():
   def setup_method(self, method):
-    self.driver = webdriver.Chrome(ChromeDriverManager().install())
+    self.driver = webdriver.Chrome()
+    self.driver.maximize_window()
     self.wait = WebDriverWait(self.driver, timeout=10)
     self.vars = {}
 
@@ -142,7 +146,8 @@ class TestTCDangKy005():
 
 class TestTCDangKy004():
   def setup_method(self, method):
-    self.driver = webdriver.Chrome(ChromeDriverManager().install())
+    self.driver = webdriver.Chrome()
+    self.driver.maximize_window()
     self.wait = WebDriverWait(self.driver, timeout=10)
     self.vars = {}
 
