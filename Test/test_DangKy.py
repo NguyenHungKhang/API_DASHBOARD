@@ -10,131 +10,102 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from selenium.webdriver.chrome.options import Options
-
+import connection
 
 ENDPOINT = "http://ec2-54-90-106-213.compute-1.amazonaws.com:8080/"
+  
+def test_tCDangNhap001():
+  driver = connection.test_connection_driver()
+  driver.maximize_window()
+  wait = WebDriverWait(driver, timeout=10)
 
-class TestTCDangNhap001():
-  def setup_method(self, method):
-    options = Options()
-    options.add_argument('--no-sandbox')  
-    self.driver = webdriver.Chrome(chrome_options=options)
-    self.driver.maximize_window()
-    self.wait = WebDriverWait(self.driver, timeout=10)
-    self.vars = {}
-  
-  def teardown_method(self, method):
-    self.driver.quit()
-  
-  def test_tCDangNhap001(self):
-    self.driver.get(ENDPOINT)
-    self.driver.set_window_size(974, 1032)
-    self.driver.find_element(By.LINK_TEXT, "Login").click()
-    self.driver.implicitly_wait(3)
-    self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(2)").click()
-    self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(2)").send_keys("nguyenhungkhang100@gmail.com")
-    self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(3)").click()
-    self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(3)").send_keys("123")
-    self.driver.find_element(By.CSS_SELECTOR, "button").click()
-    time.sleep(10.0)
-    self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(3)").click()
+  driver.get(ENDPOINT)
+  driver.set_window_size(974, 1032)
+  driver.find_element(By.LINK_TEXT, "Login").click()
+  driver.implicitly_wait(3)
+  driver.find_element(By.CSS_SELECTOR, "input:nth-child(2)").click()
+  driver.find_element(By.CSS_SELECTOR, "input:nth-child(2)").send_keys("nguyenhungkhang100@gmail.com")
+  driver.find_element(By.CSS_SELECTOR, "input:nth-child(3)").click()
+  driver.find_element(By.CSS_SELECTOR, "input:nth-child(3)").send_keys("123")
+  driver.find_element(By.CSS_SELECTOR, "button").click()
+  time.sleep(10.0)
+  driver.find_element(By.CSS_SELECTOR, "input:nth-child(3)").click()
 
-class TestTCDangNhap002():
-  def setup_method(self, method):
-    self.driver = options = Options()
-    options.add_argument('--no-sandbox')  
-    self.driver = webdriver.Chrome(chrome_options=options)
-    self.driver.maximize_window()
-    self.wait = WebDriverWait(self.driver, timeout=10)
-    self.vars = {}
-  
-  def teardown_method(self, method):
-    self.driver.quit()
-  
-  def test_tCDangNhap002(self):
-    self.driver.get(ENDPOINT)
-    self.driver.set_window_size(974, 1032)
-    self.driver.find_element(By.LINK_TEXT, "Login").click()
-    self.driver.implicitly_wait(3)
-    self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(2)").click()
-    self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(2)").send_keys("nguyenhungkhang123@gmail.com")
-    self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(3)").click()
-    self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(3)").send_keys("321")
-    self.driver.find_element(By.CSS_SELECTOR, "button").click()
-    time.sleep(10.0)
-    self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(3)").click()
+  driver.quit()
 
-class TestTCDangNhap003():
-  def setup_method(self, method):
-    self.driver = options = Options()
-    options.add_argument('--no-sandbox')  
-    self.driver = webdriver.Chrome(chrome_options=options)
-    self.driver.maximize_window()
-    self.wait = WebDriverWait(self.driver, timeout=10)
-    self.vars = {}
-  
-  def teardown_method(self, method):
-    self.driver.quit()
-  
-  def test_tCDangNhap003(self):
-    self.driver.get(ENDPOINT)
-    self.driver.set_window_size(974, 1032)
-    self.driver.find_element(By.LINK_TEXT, "Login").click()
-    self.driver.implicitly_wait(3)
-    self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(2)").click()
-    self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(2)").send_keys("nguyenhungkhang123@gmail.com")
-    self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(3)").click()
-    self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(3)").send_keys("123")
-    self.driver.find_element(By.CSS_SELECTOR, "button").click()
-    self.driver.implicitly_wait(30)
-    self.driver.find_element(By.CSS_SELECTOR, ".item:nth-child(3) img").click()
+def test_tCDangNhap002():
+  driver = connection.test_connection_driver()
+  driver.maximize_window()
+  wait = WebDriverWait(driver, timeout=10)
 
-class TestTCDangNhap004():
-  def setup_method(self, method):
-    self.driver = options = Options()
-    options.add_argument('--no-sandbox')  
-    self.driver = webdriver.Chrome(chrome_options=options)
-    self.driver.maximize_window()
-    self.wait = WebDriverWait(self.driver, timeout=10)
-    self.vars = {}
-  
-  def teardown_method(self, method):
-    self.driver.quit()
-  
-  def test_tCDangNhap004(self):
-    self.driver.get(ENDPOINT)
-    self.driver.set_window_size(974, 1032)
-    self.driver.find_element(By.LINK_TEXT, "Login").click()
-    self.driver.implicitly_wait(3)
-    self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(2)").click()
-    self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(2)").send_keys("admin@admin.com")
-    self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(3)").click()
-    self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(3)").send_keys("123")
-    self.driver.find_element(By.CSS_SELECTOR, "button").click()
-    time.sleep(10.0)
-    self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(3)").click()
+  driver.get(ENDPOINT)
+  driver.set_window_size(974, 1032)
+  driver.find_element(By.LINK_TEXT, "Login").click()
+  driver.implicitly_wait(3)
+  driver.find_element(By.CSS_SELECTOR, "input:nth-child(2)").click()
+  driver.find_element(By.CSS_SELECTOR, "input:nth-child(2)").send_keys("nguyenhungkhang123@gmail.com")
+  driver.find_element(By.CSS_SELECTOR, "input:nth-child(3)").click()
+  driver.find_element(By.CSS_SELECTOR, "input:nth-child(3)").send_keys("321")
+  driver.find_element(By.CSS_SELECTOR, "button").click()
+  time.sleep(10.0)
+  driver.find_element(By.CSS_SELECTOR, "input:nth-child(3)").click()
 
-class TestTCDangNhap005():
-  def setup_method(self, method):
-    self.driver = options = Options()
-    options.add_argument('--no-sandbox')  
-    self.driver = webdriver.Chrome(chrome_options=options)
-    self.driver.maximize_window()
-    self.wait = WebDriverWait(self.driver, timeout=10)
-    self.vars = {}
+  driver.quit()
   
-  def teardown_method(self, method):
-    self.driver.quit()
+def test_tCDangNhap003():
+  driver = connection.test_connection_driver()
+  driver.maximize_window()
+  wait = WebDriverWait(driver, timeout=10)
+
+  driver.get(ENDPOINT)
+  driver.set_window_size(974, 1032)
+  driver.find_element(By.LINK_TEXT, "Login").click()
+  driver.implicitly_wait(3)
+  driver.find_element(By.CSS_SELECTOR, "input:nth-child(2)").click()
+  driver.find_element(By.CSS_SELECTOR, "input:nth-child(2)").send_keys("nguyenhungkhang123@gmail.com")
+  driver.find_element(By.CSS_SELECTOR, "input:nth-child(3)").click()
+  driver.find_element(By.CSS_SELECTOR, "input:nth-child(3)").send_keys("123")
+  driver.find_element(By.CSS_SELECTOR, "button").click()
+  driver.implicitly_wait(30)
+  driver.find_element(By.CSS_SELECTOR, ".item:nth-child(3) img").click()
+
+  driver.quit()
   
-  def test_tCDangNhap005(self):
-    self.driver.get(ENDPOINT)
-    self.driver.set_window_size(974, 1032)
-    self.driver.find_element(By.LINK_TEXT, "Login").click()
-    self.driver.implicitly_wait(3)
-    self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(2)").click()
-    self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(2)").send_keys("admin@admin.com")
-    self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(3)").click()
-    self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(3)").send_keys("1")
-    self.driver.find_element(By.CSS_SELECTOR, "button").click()
-    self.driver.implicitly_wait(30)
-    self.driver.find_element(By.CSS_SELECTOR, ".item:nth-child(3) img").click()
+def test_tCDangNhap004():
+  driver = connection.test_connection_driver()
+  driver.maximize_window()
+  wait = WebDriverWait(driver, timeout=10)
+
+  driver.get(ENDPOINT)
+  driver.set_window_size(974, 1032)
+  driver.find_element(By.LINK_TEXT, "Login").click()
+  driver.implicitly_wait(3)
+  driver.find_element(By.CSS_SELECTOR, "input:nth-child(2)").click()
+  driver.find_element(By.CSS_SELECTOR, "input:nth-child(2)").send_keys("admin@admin.com")
+  driver.find_element(By.CSS_SELECTOR, "input:nth-child(3)").click()
+  driver.find_element(By.CSS_SELECTOR, "input:nth-child(3)").send_keys("123")
+  driver.find_element(By.CSS_SELECTOR, "button").click()
+  time.sleep(10.0)
+  driver.find_element(By.CSS_SELECTOR, "input:nth-child(3)").click()
+
+  driver.quit()
+
+  
+def test_tCDangNhap005():
+  driver = connection.test_connection_driver()
+  driver.maximize_window()
+  wait = WebDriverWait(driver, timeout=10)
+
+  driver.get(ENDPOINT)
+  driver.set_window_size(974, 1032)
+  driver.find_element(By.LINK_TEXT, "Login").click()
+  driver.implicitly_wait(3)
+  driver.find_element(By.CSS_SELECTOR, "input:nth-child(2)").click()
+  driver.find_element(By.CSS_SELECTOR, "input:nth-child(2)").send_keys("admin@admin.com")
+  driver.find_element(By.CSS_SELECTOR, "input:nth-child(3)").click()
+  driver.find_element(By.CSS_SELECTOR, "input:nth-child(3)").send_keys("1")
+  driver.find_element(By.CSS_SELECTOR, "button").click()
+  driver.implicitly_wait(30)
+  driver.find_element(By.CSS_SELECTOR, ".item:nth-child(3) img").click()
+
+  driver.quit()
